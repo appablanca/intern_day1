@@ -12,15 +12,13 @@ let bubbleSort = (arr) => {
     return arr;
 }
 
-let mer
-
 let swap = (arr,i,j) =>{
     let temp = arr[j];
     arr[j] = arr[i];
     arr[i] = temp;
 }
 
-let sort = (arr,low,high) => {
+let partition = (arr,low,high) => {
     let pivot = arr[high];
     let i = (low -1);
 
@@ -39,14 +37,40 @@ let sort = (arr,low,high) => {
 
 let quickSort = (arr,low,high) => {
     if(low < high){
-        let part = sort(arr,low,high);
+        let part = partition(arr,low,high);
         quickSort(arr,low,part-1);
         quickSort(arr,part+1,high);
     }
 }
 
+/*
+let _merge = (arr,l,m,r) => {
 
-let testArray = [5, 12, 3, 1, 2, 3];
+
+}  
+*/
+let _sort = (arr) => {
+    let middle = parseInt((r-l)/2)
+    console.log(middle);
+    let leftArr = [];
+    for(let i = 0;i < middle;i++){
+        leftArr[i] = arr[i];
+    }
+
+    let rightArr = [];
+    let a = 0;
+    for(let i = middle;i< arr.length;i++){
+        rightArr[a] = arr[i];
+        a++;
+    }
+    /*
+    _sort(leftArr);
+    _sort(rightArr);
+    _merge(arr,0,middle,arr.length);
+    */
+    
+}
+
+let testArray = [5, 12, 3, 1, 2];
 console.log(testArray);
-quickSort(testArray,0,testArray.length-1);
-console.log(testArray);
+_sort(testArray);
