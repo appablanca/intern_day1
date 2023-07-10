@@ -45,28 +45,33 @@ let quickSort = (arr,low,high) => {
 
 
 let _merge = (arr,l,m,r) => {
+    let n1 = m - l + 1;
+    let n2 = r- m;
+
+
+
+     
+    let leftArr = [];
+    for(let i = 0;i < n1;i++){
+        leftArr[i] = arr[l+i];
+    }
+
+
+    let rightArr = [];
+    for(let j = 0;j< n2;j++){
+        rightArr[j] = arr[m+1+j];
+    }
+
 
     let i = 0;
     let j = 0;
     let k = l;
+   
 
-    let leftArr = [];
-    for(let i = 0;i < middle;i++){
-        leftArr[i] = arr[i];
-    }
-
-    let rightArr = [];
-    let a = 0;
-    for(let i = middle;i< arr.length;i++){
-        rightArr[a] = arr[i];
-        a++;
-    }
-
-    let n1 = middle + 1;
-    let n2 = arr.length - middle;
+  
 
     while(i<n1 && j <n2){
-        if(leftArr[i] <= rightArr[i]){
+        if(leftArr[i] <= rightArr[j]){
             arr[k] = leftArr[i];
             i++;
         } else {
@@ -86,7 +91,6 @@ let _merge = (arr,l,m,r) => {
         j++;
         k++;
     }
-     
 }  
 
 let _sort = (arr,l,r) => {
@@ -95,7 +99,7 @@ let _sort = (arr,l,r) => {
         return;
     }
 
-    let middle = Math.floor(arr.length/2);
+    let middle = parseInt(l+(r-l)/2);
     
 
     _sort(arr,l,middle);
@@ -111,3 +115,4 @@ let testArray = [5, 12, 3, 1, 2];
 console.log(testArray);
 let size = testArray.length;
 _sort(testArray,0,size-1);
+console.log(testArray);
