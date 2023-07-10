@@ -12,22 +12,41 @@ let bubbleSort = (arr) => {
     return arr;
 }
 
-let quickSort = (arr) => {
-    if (arr.length <= 1) {
-        return arr;
-    }
-    let middle = Math.floor(arr.length / 2);
-    let pivot = arr[middle];
-    let leftArr = [];
-    let rightArr = [];
+let mer
 
-    
+let swap = (arr,i,j) =>{
+    let temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+}
+
+let sort = (arr,low,high) => {
+    let pivot = arr[high];
+    let i = (low -1);
+
+    for(let j = low; j <= high -1;j++){
+        if(arr[j] < pivot){
+            i++;
+            swap(arr,i,j);
+        }
+    }
+
+    swap(arr,i+1,high);
+    return(i+1);
+}
+
+
+
+let quickSort = (arr,low,high) => {
+    if(low < high){
+        let part = sort(arr,low,high);
+        quickSort(arr,low,part-1);
+        quickSort(arr,part+1,high);
+    }
 }
 
 
 let testArray = [5, 12, 3, 1, 2, 3];
 console.log(testArray);
-
-quickSort(testArray);
+quickSort(testArray,0,testArray.length-1);
 console.log(testArray);
-
