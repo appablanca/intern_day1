@@ -51,13 +51,13 @@ let _merge = (arr,l,m,r) => {
 
 
      
-    let leftArr = [];
+    let leftArr = [n1];
     for(let i = 0;i < n1;i++){
         leftArr[i] = arr[l+i];
     }
 
 
-    let rightArr = [];
+    let rightArr = [n2];
     for(let j = 0;j< n2;j++){
         rightArr[j] = arr[m+1+j];
     }
@@ -78,6 +78,7 @@ let _merge = (arr,l,m,r) => {
             arr[k] = rightArr[j];
             j++;
         }
+        k++;
     }
 
     while(i< n1){
@@ -93,7 +94,7 @@ let _merge = (arr,l,m,r) => {
     }
 }  
 
-let _sort = (arr,l,r) => {
+let mergeSort = (arr,l,r) => {
 
     if(l>=r){
         return;
@@ -102,10 +103,8 @@ let _sort = (arr,l,r) => {
     let middle = parseInt(l+(r-l)/2);
     
 
-    _sort(arr,l,middle);
-
-    _sort(arr,middle+1,r);
-
+    mergeSort(arr,l,middle);
+    mergeSort(arr,middle+1,r);
     _merge(arr,l,middle,r);
     
     
@@ -114,5 +113,5 @@ let _sort = (arr,l,r) => {
 let testArray = [5, 12, 3, 1, 2];
 console.log(testArray);
 let size = testArray.length;
-_sort(testArray,0,size-1);
+mergeSort(testArray,0,size-1);
 console.log(testArray);
