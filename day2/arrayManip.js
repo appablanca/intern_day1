@@ -29,7 +29,7 @@ function removeDupe(arr){
 
 
     for(let i = 0; i < arr.length;i++){
-        if(ans.indexOf(arr[i]) === -1){
+        if(ans.indexOf(arr[i]) == -1){
             ans.push(arr[i]);
         }
     }
@@ -56,21 +56,21 @@ function sparseArray(arr){
     return count;
 }
 
-let forwardArr = ["a",1,"c",5,7];
+let forwardArr = [2,"a",1,"c",5,7];
 console.log(forwardArr);
 let revArr = reverseArray(forwardArr);
 console.log(revArr);
 
 let unrotArr = [1,2,3,4,5];
 console.log(unrotArr);
-let rotatedArr = leftRotation(unrotArr,4);
+let rotatedArr = leftRotation(unrotArr,5);
 console.log(rotatedArr);
 
-let dupeArr = ["a","b","b","c","c","c","d","a"];
+let dupeArr = [1,"a","b","b","c","c","c","d","a","1"];
 console.log(dupeArr);
 let answerArr = removeDupe(dupeArr);
-console.log(answerArr);
+ console.log(answerArr);
 
-let inputArr = ["aba","baba","baba","zxzb"];
+let inputArr = ["aba","baba","baba","zxzb","ab"];
 let sparsedArr = sparseArray(inputArr);
 console.log(sparsedArr);
