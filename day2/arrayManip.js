@@ -46,8 +46,7 @@ function sparseArray(arr){
     for(let i = 0; i < arr.length; i++){
         if(!(ans.indexOf(arr[i])=== -1)){
             count[ans.indexOf(arr[i])] ++;
-        }
-        if(ans.indexOf(arr[i]) === -1){
+        } else {
             ans.push(arr[i]);
             count.push(1);
         }
