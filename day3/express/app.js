@@ -1,9 +1,27 @@
 const http = require('http');
 
-const routes = require('./routes');
+const express = require("express");
 
-console.log(routes.someText);
+const app = express();
 
-const server = http.createServer(routes.handler);
 
-server.listen(3000);
+
+app.use("/add-product",(req,res,next) => {
+    console.log("anotha one");
+    res.send("<h1>Add product</h1>");
+});
+
+
+
+
+
+
+app.use("/",(req,res,next) => {
+    console.log("anotha one");
+    res.send("<h1>HEllo from express</h1>");
+});
+
+
+
+app.listen(3000);
+
