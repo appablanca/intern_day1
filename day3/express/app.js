@@ -8,11 +8,14 @@ const app = express();
 
 app.use("/add-product",(req,res,next) => {
     console.log("anotha one");
-    res.send("<h1>Add product</h1>");
+    res.send('<form action="/product method="POST"><input type="text" name="title"><button type"submit">Add Product  </input></form>');
 });
 
 
-
+app.use("/product",(req,res,next)=>{
+    console.log(req.body);
+    res.redirect("/");
+});
 
 
 
