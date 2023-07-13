@@ -16,5 +16,6 @@
 }
 
 .form-control input:focus {
-    outline-color: #00695c;
+    outline-color: #004225
+    ;
 }
