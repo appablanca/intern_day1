@@ -1,0 +1,2 @@
+combining the project with SQL database 
+skipped because in the future this project will use a NoSQL database
