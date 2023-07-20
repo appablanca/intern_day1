@@ -50,16 +50,18 @@ exports.getIndex = (req, res, next) => {
     });
 };
 
+	
 exports.getCart = (req, res, next) => {
+  console.log("bura1")
   req.user
     .getCart()
     .then(products => {
-        res.render('shop/cart', {
-          path: '/cart',
-          pageTitle: 'Your Cart',
-          products: products
-          });
-        })
+      res.render('shop/cart', {
+        path: '/cart',
+        pageTitle: 'Your Cart',
+        products: products
+      });
+    })
     .catch(err => console.log(err));
 };
 
