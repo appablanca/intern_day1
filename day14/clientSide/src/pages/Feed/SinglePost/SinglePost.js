@@ -17,7 +17,7 @@ class SinglePost extends Component {
     fetch('http://localhost:8080/feed/post/' + postId)
       .then(res => {
         if (res.status !== 200) {
-          throw new Error('Failed to fetch status');
+          throw new Error('ch status');
         }
         return res.json();
       })
